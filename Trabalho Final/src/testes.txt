@@ -1,0 +1,15 @@
+expressao.txt		VAL
+expressao2.txt		INV
+expressao3.txt		INV  
+expressao4.txt		INV
+expressao5.txt		INV
+expressao6.txt		INV
+expressao7.txt		INV
+expressao8.txt		INV
+expressao9.txt		INV
+expressao10.txt		INV
+expressao11.txt		INV
+expressao12.txt		INV
+expressao13.txt		VAL
+expressao14.txt		VAL
+expressao15.txt		VAL

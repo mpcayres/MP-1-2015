@@ -1,0 +1,61 @@
+Universidade de Brasília
+**********************************************************************
+Calculo de Expressões Matemáticas em Lógica Polonesa Reversa
+Trabalho Final de Métodos de Programação 1/2015
+**********************************************************************
+  Ingrid Santana Lopes			14/0083065
+  Marcos Paulo Cayres Rosa		14/0027131
+  Felipe Lira Fernandes dos Santos	14/0019821
+**********************************************************************
+Índice:
+- Compilação
+- Execução
+- Testes
+- gcov
+- doxygen
+- splint
+
+Compilação
+------------------------------------
+a compilação deverá ser feita através do terminal, estando aberto na pasta "src". 
+Para compilar, basta digitar no terminal o comando "make" e apertar enter.
+
+Execução
+------------------------------------
+para executar o programa, digite através do terminal o comando "./testa_calc <edit.txt" e aperte enter caso deseje a
+execução que testa mais plenamente o funcionamento do programa, simulando as respostas exigidas do usuário. Caso deseje
+ser o usuário, apenas digite o comando "./testa_calc" para executar o programa.
+Atenção: o modo "./testa_calc" de execuçao altera a porcentagem dos códigos que são usados dependendo de suas respostas.
+
+Testes
+------------------------------------
+o arquivo testes.txt apresenta uma lista de testes que estão presentes nos arquivos .txt denominados no mesmo.
+O resultado esperado para cada arquivo quanto a validez da estrutura está presente logo ao lado do nome. 
+Caso queira adicionar um novo teste, escreva a expressão num novo arquivo do tipo .txt em uma única linha.
+A seguir, em testes.txt, adicione uma nova linha contendo o nome completo do arquivo com a nova expressão de teste
+e então aperte a tecla "tab" até estar na posição alinhada para adicionar o resultado esperado para a expressão que
+foi digitada anteriormente. "INV" representa "INVÁLIDO" e "VAL" representa "VÁLIDO".
+
+gcov
+------------------------------------
+Para executar o gcov de cada um dos .c, depois da devida compilação e execução do programa, execute o comando
+"gcov obj/nomearquivosaida.gcno" onde as opções de arquivo saída são: pilha.gcno calculadora.gcno e testa_calculadora.gcno
+
+doxygen
+------------------------------------
+Para abrir o doxygen do programa, abra a pasta "...src/html", procure por "index.html" e, apertando o botão esquerdo do mouse, arraste o
+arquivo para o navegador desejado e solte-o. A página do doxygen será então exibida.
+Caso seja alterado algo nos comentários das funções nos header's, vá na pasta "...src", abra o arquivo "Doxyfile", procure por "INPUT"
+e coloque o caminho do path onde estão localizados os header's. Posteriormente, vá ao terminal e digite doxygen Doxyfile dentro da pasta
+"...src"
+
+splint
+------------------------------------
+Para executar o splint e fazer a análise estática do programa, basta ir no terminal dentro da pasta "src" e digitar os seguintes comandos:
+
+splint -weak +infloops +sysdirerrors +compdef -I(path da pasta 'include' do programa) pilha.c
+splint -weak +infloops +sysdirerrors +compdef -I(path da pasta 'include' do programa) calculadora.c
+splint -weak +infloops +sysdirerrors +compdef -I(path da pasta 'include' do programa) testa_calculadora.c
+
+Onde em "(path da pasta 'include' do programa)" você deve substituir pelo caminho entre aspas simples da pasta include, onde estão 
+localizados os headers do programa

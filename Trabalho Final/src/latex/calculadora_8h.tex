@@ -1,0 +1,413 @@
+\hypertarget{calculadora_8h}{\section{Referência ao ficheiro /mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/calculadora.h}
+\label{calculadora_8h}\index{/mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/calculadora.\-h@{/mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/calculadora.\-h}}
+}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{calculadora_8h_a49b3ad6b689af3e8ff210ac53e1a1c90_a49b3ad6b689af3e8ff210ac53e1a1c90}{cria\-Novo\-Arquivo} (void)
+\begin{DoxyCompactList}\small\item\em Cria novo arquivo para armazenar operações \par
+Cria um novo arquivo vazio para que as operações calculadas durante a execução do programa possam ser salvas com seus respectivos resultados e para posterior análise pelo usuário. \end{DoxyCompactList}\item 
+int \hyperlink{calculadora_8h_ac071843d5d27025e29604f0bc019ff29_ac071843d5d27025e29604f0bc019ff29}{validacao} (char $\ast$seq)
+\begin{DoxyCompactList}\small\item\em Confere se a expressão numérica segue os critérios estabelecidos \par
+Retorna a determinação de se a expressão foi parentizada corretamente (E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S, em caso positivo, e E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E, em caso negativo). Como também, informa a existência de caracteres inválidos, a falta de operadores, tentativas de cálculos inválidos e erros lógicos. \end{DoxyCompactList}\item 
+float \hyperlink{calculadora_8h_a816d45befeeedbb8b094a554466bd6d8_a816d45befeeedbb8b094a554466bd6d8}{calcula} (char $\ast$op)
+\begin{DoxyCompactList}\small\item\em Calcula uma expressão utilizando lógica polonesa reversa \par
+Função que recebe como parâmetro uma string op, que possui uma expressão matemática em lógica polonesa reversa, e retorna um valor float representando o resultado dessa expressão. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{calculadora_8h_a9d0ac46f7717b61e2589b15deb4f18b4_a9d0ac46f7717b61e2589b15deb4f18b4}{transf\-Pol\-Inv} (char $\ast$operacao)
+\begin{DoxyCompactList}\small\item\em Transforma uma expressão para Notação Polonesa Inversa \par
+Função que recebe como parâmetro uma string com uma expressão matemática e retorna uma outra string com a expressão equivalente em notação polonesa reversa. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{calculadora_8h_ae02266c2d5c20bf59882851eff797e73_ae02266c2d5c20bf59882851eff797e73}{Capt\-Expr} (char $\ast$nomearq)
+\begin{DoxyCompactList}\small\item\em Captura uma expressão matemática através de um arquivo\par
+Função que recebe como parâmetro uma string que constituída pelo nome de um arquivo no qual vai ser capturada uma expressão matemática, retornando uma nova string com a expressão. \end{DoxyCompactList}\item 
+int \hyperlink{calculadora_8h_ab183a739071ae4405bd9353edcd574cf_ab183a739071ae4405bd9353edcd574cf}{leitura} (char $\ast$nomearq)
+\begin{DoxyCompactList}\small\item\em Testa a parentização dos elementos de uma pilha \par
+Retorna a determinação de se uma expressão encontrada em um arquivo é válida (E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S, em caso positivo, e E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E, em caso negativo) e exibe essa informação na tela, juntamente ao seu resultado. \end{DoxyCompactList}\item 
+int \hyperlink{calculadora_8h_af876161e69e65a584bf1abccab64f967_af876161e69e65a584bf1abccab64f967}{Editar\-Expr} (char $\ast$nomearq)
+\begin{DoxyCompactList}\small\item\em Edita a expressão que está dentro de um arquivo \par
+Função que edita uma expressão matemática que está dentro um arquivo, recebe como parâmetro uma string com o nome desse arquivo e retorna um inteiro com o valor dessa expressão calculado pela função \char`\"{}leitura\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação das funções}
+\hypertarget{calculadora_8h_a816d45befeeedbb8b094a554466bd6d8_a816d45befeeedbb8b094a554466bd6d8}{\index{calculadora.\-h@{calculadora.\-h}!calcula@{calcula}}
+\index{calcula@{calcula}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{calcula}]{\setlength{\rightskip}{0pt plus 5cm}float calcula (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{op}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_a816d45befeeedbb8b094a554466bd6d8_a816d45befeeedbb8b094a554466bd6d8}
+
+
+Calcula uma expressão utilizando lógica polonesa reversa \par
+Função que recebe como parâmetro uma string op, que possui uma expressão matemática em lógica polonesa reversa, e retorna um valor float representando o resultado dessa expressão. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em op} & -\/ string que contém a expressão a ser calculada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Um valor real com o resultado da expressão 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item op é uma string que se refere à uma expressão matemática 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item valor retornado deve ser correspondente ao resultado da expressão
+\begin{DoxyItemize}
+\item 'op' é o mesmo que o de entrada 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma string op e retorna um float 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de calcular o valor de uma expressão em lógica polonesa reversa
+\item Deve ser capaz de obedecer todos as regras matemáticas de precedência
+\item Liberar qualquer estrutura utilizada para auxiliar no procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item A string passada é diferente de N\-U\-L\-L
+\item A expressão passada contém apenas caracteres válidos que podem ser utilizados em expressões matemáticas 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_ae02266c2d5c20bf59882851eff797e73_ae02266c2d5c20bf59882851eff797e73}{\index{calculadora.\-h@{calculadora.\-h}!Capt\-Expr@{Capt\-Expr}}
+\index{Capt\-Expr@{Capt\-Expr}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{Capt\-Expr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Capt\-Expr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nomearq}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_ae02266c2d5c20bf59882851eff797e73_ae02266c2d5c20bf59882851eff797e73}
+
+
+Captura uma expressão matemática através de um arquivo\par
+Função que recebe como parâmetro uma string que constituída pelo nome de um arquivo no qual vai ser capturada uma expressão matemática, retornando uma nova string com a expressão. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nomearq} & -\/ string com o nome do arquivo onde está a expressão \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+string que possui a expressão encontrada 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item Arquivo criado pela string passada como parâmetro é diferente de N\-U\-L\-L 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item o arquivo não sofrerá modificações 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma string com o nome do arquivo e retorna uma nova string com a expressão encontrada 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de encontrar uma expressão matemática presente em um arquivo
+\item Deve ser capaz de fechar o arquivo aberto para se encontrar a expressão 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O arquivo aberto pela string passada como parâmetro possui apenas uma expressão matemática 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_a49b3ad6b689af3e8ff210ac53e1a1c90_a49b3ad6b689af3e8ff210ac53e1a1c90}{\index{calculadora.\-h@{calculadora.\-h}!cria\-Novo\-Arquivo@{cria\-Novo\-Arquivo}}
+\index{cria\-Novo\-Arquivo@{cria\-Novo\-Arquivo}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{cria\-Novo\-Arquivo}]{\setlength{\rightskip}{0pt plus 5cm}void cria\-Novo\-Arquivo (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_a49b3ad6b689af3e8ff210ac53e1a1c90_a49b3ad6b689af3e8ff210ac53e1a1c90}
+
+
+Cria novo arquivo para armazenar operações \par
+Cria um novo arquivo vazio para que as operações calculadas durante a execução do programa possam ser salvas com seus respectivos resultados e para posterior análise pelo usuário. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Nenhum} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nenhum 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item Nenhum 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item sairá do programa caso não seja possível abrir o arquivo operacoes.\-txt
+\item o arquivo aberto deverá ser fechado 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Um ponteiro to tipo F\-I\-L\-E denominado fp que apontará para o arquivo aberto. 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Não há estrutura explicita 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de criar um novo arquivo denominado operacoes.\-txt caso não exista
+\item Caso já exista arquivo com esse nome, deve ser capaz de esvaziar todo seu conteúdo
+\item Deve ser capaz de sair do programa caso não seja possível abrir o arquivo
+\item Deve fechar o arquivo antes de sair do programa 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item A função será chamada previamente a utilização do arquivo operacoes.\-txt 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_af876161e69e65a584bf1abccab64f967_af876161e69e65a584bf1abccab64f967}{\index{calculadora.\-h@{calculadora.\-h}!Editar\-Expr@{Editar\-Expr}}
+\index{Editar\-Expr@{Editar\-Expr}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{Editar\-Expr}]{\setlength{\rightskip}{0pt plus 5cm}int Editar\-Expr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nomearq}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_af876161e69e65a584bf1abccab64f967_af876161e69e65a584bf1abccab64f967}
+
+
+Edita a expressão que está dentro de um arquivo \par
+Função que edita uma expressão matemática que está dentro um arquivo, recebe como parâmetro uma string com o nome desse arquivo e retorna um inteiro com o valor dessa expressão calculado pela função \char`\"{}leitura\char`\"{}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nomearq} & -\/ string que constitui o nome do arquivo a ser editado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+inteiro com o valor da expressão 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item existir o arquivo passado como parâmetro 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item valor retornado é um inteiro E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S ou E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe uma string e retorna um inteiro 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de imprimir a expressão original na tela
+\item Deve capturar a nova expressão pelo usuário e posteriormente sobrescrever o arquivo com a nova expressão 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item A expressão fornecida estará correta em quesitos não relativos à parentização ou lógica matemática
+\item Será fornecida apenas uma expressão matemática e esta será não nula 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_ab183a739071ae4405bd9353edcd574cf_ab183a739071ae4405bd9353edcd574cf}{\index{calculadora.\-h@{calculadora.\-h}!leitura@{leitura}}
+\index{leitura@{leitura}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{leitura}]{\setlength{\rightskip}{0pt plus 5cm}int leitura (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{nomearq}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_ab183a739071ae4405bd9353edcd574cf_ab183a739071ae4405bd9353edcd574cf}
+
+
+Testa a parentização dos elementos de uma pilha \par
+Retorna a determinação de se uma expressão encontrada em um arquivo é válida (E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S, em caso positivo, e E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E, em caso negativo) e exibe essa informação na tela, juntamente ao seu resultado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nomearq} & -\/ ponteiro de char indicando a string correspondente ao nome do arquivo/código \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Um valor inteiro que serve como booleano 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item existir o arquivo passado como parâmetro 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item valor retornado é um inteiro E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S ou E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E
+\item arquivo não sofrerá modificações 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma string e retorna um inteiro 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de verificar a validade de uma expressão
+\item Caso não haja encontrado o arquivo, cessar o procedimento
+\item Liberar qualquer estrutura utilizada para auxiliar no procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item A expressão fornecida estará correta em quesitos não relativos à parentização ou lógica matemática
+\item O arquivo aberto pela string passada como parâmetro possui apenas uma expressão matemática 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_a9d0ac46f7717b61e2589b15deb4f18b4_a9d0ac46f7717b61e2589b15deb4f18b4}{\index{calculadora.\-h@{calculadora.\-h}!transf\-Pol\-Inv@{transf\-Pol\-Inv}}
+\index{transf\-Pol\-Inv@{transf\-Pol\-Inv}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{transf\-Pol\-Inv}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ transf\-Pol\-Inv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{operacao}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_a9d0ac46f7717b61e2589b15deb4f18b4_a9d0ac46f7717b61e2589b15deb4f18b4}
+
+
+Transforma uma expressão para Notação Polonesa Inversa \par
+Função que recebe como parâmetro uma string com uma expressão matemática e retorna uma outra string com a expressão equivalente em notação polonesa reversa. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em operacao} & -\/ string com a expressão a ser transformada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+string com a expressão transformada 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item seq é uma string que se refere à uma expressão matemática 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item 'operacao' é o mesmo que o de entrada 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma string com a expressão a ser transformada e retorna uma outra string com a expressão transformada 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de transformar uma expressão matemática em lógica polonesa reversa
+\item Deve seguir todos as regras de precedência matemática
+\item Deve sair do programa caso não consiga alocar a memória necessária para as variáveis auxiliares 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item A string passada é diferente de N\-U\-L\-L
+\item A expressão passada contém apenas caracteres válidos que podem ser utilizados em expressões matemáticas 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{calculadora_8h_ac071843d5d27025e29604f0bc019ff29_ac071843d5d27025e29604f0bc019ff29}{\index{calculadora.\-h@{calculadora.\-h}!validacao@{validacao}}
+\index{validacao@{validacao}!calculadora.h@{calculadora.\-h}}
+\subsubsection[{validacao}]{\setlength{\rightskip}{0pt plus 5cm}int validacao (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{seq}
+\end{DoxyParamCaption}
+)}}\label{calculadora_8h_ac071843d5d27025e29604f0bc019ff29_ac071843d5d27025e29604f0bc019ff29}
+
+
+Confere se a expressão numérica segue os critérios estabelecidos \par
+Retorna a determinação de se a expressão foi parentizada corretamente (E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S, em caso positivo, e E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E, em caso negativo). Como também, informa a existência de caracteres inválidos, a falta de operadores, tentativas de cálculos inválidos e erros lógicos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em seq} & -\/ ponteiro para a expressão a ser testada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Um valor inteiro que serve como booleano 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item seq é uma string que se refere à uma expressão matemática 
+\end{DoxyItemize}
+
+Assertiva de saída\-:
+\begin{DoxyItemize}
+\item valor retornado é um inteiro E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S ou E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E
+\begin{DoxyItemize}
+\item 'seq' é o mesmo que o de entrada 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não são usadas variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma string e retorna um inteiro 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de verificar a parentização de uma string
+\item Deve ser capaz de conferir a corretude de uma expressão matemática
+\item Caso não haja elementos na string, retornar como E\-X\-I\-T\-\_\-\-S\-U\-C\-C\-E\-S\-S
+\item Se algum elemento diferir de parênteses, colchetes, chaves, números ou operador, retornar E\-X\-I\-T\-\_\-\-F\-A\-I\-L\-U\-R\-E 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O ponteiro do tipo char fornecido está indicando a string a ser analisada 
+\end{DoxyItemize}
+\end{DoxyRemark}

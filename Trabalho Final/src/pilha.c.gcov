@@ -1,0 +1,69 @@
+        -:    0:Source:pilha.c
+        -:    0:Graph:obj/pilha.gcno
+        -:    0:Data:obj/pilha.gcda
+        -:    0:Runs:91
+        -:    0:Programs:49
+        -:    1:/*Trabalho Final de Métodos de Programação
+        -:    2:Professor: Jan Correa
+        -:    3:Alunos: Marcos Paulo Cayres Rosa - 14/0027131
+        -:    4:	Ingrid Santana Lopes - 14/0083065
+        -:    5:	Felipe Lira Fernandes dos Santos - 14/0019821
+        -:    6:- Programa auxiliar, presente na pasta src junto com o 'Makefile', 'calculadora.c' e 'testa_calculadora.c'
+        -:    7:*/
+        -:    8:
+        -:    9:#include <stdio.h>
+        -:   10:#include <stdlib.h>
+        -:   11:#include <assert.h>
+        -:   12:#include "pilha.h"
+        -:   13:
+      623:   14:Pilha* cria_pilha(){
+      623:   15:	Pilha *novo = (Pilha*)malloc(sizeof(Pilha));
+      623:   16:	assert(novo != NULL);
+        -:   17:
+      623:   18:	novo->topo = NULL;
+        -:   19:
+      623:   20:	return novo;
+        -:   21:}
+        -:   22:
+    11370:   23:int pilha_vazia(Pilha *p){
+    11370:   24:	return (p->topo == NULL);
+        -:   25:}
+        -:   26:
+     5954:   27:void push(Pilha *p, float c){
+     5954:   28:	Lista *novo = (Lista*)malloc(sizeof(Lista));
+     5954:   29:	assert(novo != NULL);
+        -:   30:
+     5954:   31:	novo->elem = c;
+     5954:   32:	novo->prox = p->topo;
+     5954:   33:	p->topo = novo;
+     5954:   34:}
+        -:   35:
+     5420:   36:void pop(Pilha *p){
+        -:   37:	Lista *l;
+     5420:   38:	if (pilha_vazia(p)) exit(0);
+        -:   39:	
+     5419:   40:	l = p->topo;
+     5419:   41:	p->topo = l->prox;
+     5419:   42:	free(l);
+     5419:   43:}
+        -:   44:
+     5950:   45:float top(Pilha *p){
+     5950:   46:	Lista *aux = p->topo;
+     5950:   47:	if (pilha_vazia(p)) return EXIT_FAILURE;
+     5949:   48:	return aux->elem;
+        -:   49:}
+        -:   50:
+      621:   51:void libera_lista(Lista *l){
+     1776:   52:	while(l != NULL){
+      534:   53:		Lista *tmp = l->prox;
+      534:   54:		free(l);
+      534:   55:		l = tmp;
+        -:   56:	}/*while*/
+      621:   57:}
+        -:   58:
+      621:   59:void libera_pilha(Pilha *p){
+      621:   60:	if(p == NULL) exit(1);
+      621:   61:	Lista *l = p->topo;
+      621:   62:	libera_lista(l);
+      621:   63:	free(p);
+      621:   64:}

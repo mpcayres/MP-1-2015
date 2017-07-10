@@ -1,0 +1,5 @@
+codigo.c		VALIDO
+pilha.c			VALIDO
+parentizacao.c		VALIDO
+testa_parentizacao.c	VALIDO
+codigo2.c		INVALIDO

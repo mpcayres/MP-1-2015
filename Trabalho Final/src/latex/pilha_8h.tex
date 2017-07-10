@@ -1,0 +1,406 @@
+\hypertarget{pilha_8h}{\section{Referência ao ficheiro /mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/pilha.h}
+\label{pilha_8h}\index{/mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/pilha.\-h@{/mnt/\-Un\-B/3\-Semestre/\-M\-P/\-Trab\-Final/include/pilha.\-h}}
+}
+\subsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlista}{lista}
+\begin{DoxyCompactList}\small\item\em Estrutura de uma lista, incluindo ponteiro para o próximo elemento e uma variável de float \par
+. \end{DoxyCompactList}\item 
+struct \hyperlink{structpilha}{pilha}
+\begin{DoxyCompactList}\small\item\em Estrutura de uma pilha, incluindo um ponteiro de Lista para indicar o topo da pilha \par
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structlista}{lista} \hyperlink{pilha_8h_ab845f95877fc6e5b120d2f0186d78d54_ab845f95877fc6e5b120d2f0186d78d54}{Lista}
+\begin{DoxyCompactList}\small\item\em Estrutura de uma lista, incluindo ponteiro para o próximo elemento e uma variável de float \par
+. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structpilha}{pilha} \hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha}
+\begin{DoxyCompactList}\small\item\em Estrutura de uma pilha, incluindo um ponteiro de Lista para indicar o topo da pilha \par
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$ \hyperlink{pilha_8h_aace0232a9126235d3964062107cee55c_aace0232a9126235d3964062107cee55c}{cria\-\_\-pilha} ()
+\begin{DoxyCompactList}\small\item\em Criar uma pilha; \par
+Aloca um espaço para pilha e faz o elemento 'topo' apontar para N\-U\-L\-L, este que será o início da lista a ser utilizada. \end{DoxyCompactList}\item 
+int \hyperlink{pilha_8h_a54a1cdc50015c41512196165a986cab3_a54a1cdc50015c41512196165a986cab3}{pilha\-\_\-vazia} (\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Verificar se a pilha está vazia; \par
+Analisa se a pilha está vazia e retorna a resposta correspondente;. \end{DoxyCompactList}\item 
+void \hyperlink{pilha_8h_a639f7f4e91ef10022f7ac9c0e83dba2d_a639f7f4e91ef10022f7ac9c0e83dba2d}{push} (\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$p, float c)
+\begin{DoxyCompactList}\small\item\em Fazer Push na pilha (adição de elemento) \par
+Acrescente um elemento do tipo float no início de uma lista e aponta a estrutura de topo da pilha para este, além do fazer o último elemento da pilha apontar para N\-U\-L\-L. \end{DoxyCompactList}\item 
+void \hyperlink{pilha_8h_aaa042bbc4159faac76055a63d4b7fa0a_aaa042bbc4159faac76055a63d4b7fa0a}{pop} (\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Fazer Pop na pilha (retirada do elemento do topo); \par
+Retira o elemento do tipo float do topo de um lista, a qual é indicada por um ponteiro da estrutura pilha. Ademais, confere se a pilha está vazia, para saber se continua com o procedimento e faz com que os demais elementos continuem na mesma ordem \par
+. \end{DoxyCompactList}\item 
+float \hyperlink{pilha_8h_a44bbd9709f9a48bea139ad30fd06fc70_a44bbd9709f9a48bea139ad30fd06fc70}{top} (\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Fazer Top na pilha (indica o elemento do topo) \par
+Retorna o elemento do tipo float do topo de um lista, a qual é indicada por um ponteiro da estrutura pilha. Ademais, confere se a pilha está vazia, indicando isso na valor retornado (em caso positivo) e não modifica a posição ou existência dos elementos. \end{DoxyCompactList}\item 
+void \hyperlink{pilha_8h_a0c60b2327ddeb2e65ee529641871dfbd_a0c60b2327ddeb2e65ee529641871dfbd}{libera\-\_\-lista} (\hyperlink{pilha_8h_ab845f95877fc6e5b120d2f0186d78d54_ab845f95877fc6e5b120d2f0186d78d54}{Lista} $\ast$l)
+\begin{DoxyCompactList}\small\item\em Liberar uma lista da memória \par
+Auxilia a função 'libera\-\_\-pilha' a liberar da memória o espaço correspondente a pilha fornecida. \end{DoxyCompactList}\item 
+void \hyperlink{pilha_8h_ad21398dbba397a88d6cd5ac4ea5f8be9_ad21398dbba397a88d6cd5ac4ea5f8be9}{libera\-\_\-pilha} (\hyperlink{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{Pilha} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Liberar uma pilha da memória \par
+Libera da memória o espaço correspondente a pilha fornecida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentação dos tipos}
+\hypertarget{pilha_8h_ab845f95877fc6e5b120d2f0186d78d54_ab845f95877fc6e5b120d2f0186d78d54}{\index{pilha.\-h@{pilha.\-h}!Lista@{Lista}}
+\index{Lista@{Lista}!pilha.h@{pilha.\-h}}
+\subsubsection[{Lista}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf lista}  {\bf Lista}}}\label{pilha_8h_ab845f95877fc6e5b120d2f0186d78d54_ab845f95877fc6e5b120d2f0186d78d54}
+
+
+Estrutura de uma lista, incluindo ponteiro para o próximo elemento e uma variável de float \par
+. 
+
+\begin{DoxyRemark}{Observações}
+Assertivas Estruturais\-:
+\begin{DoxyItemize}
+\item l-\/$>$prox != N\-U\-L\-L =$>$ l != N\-U\-L\-L 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}{\index{pilha.\-h@{pilha.\-h}!Pilha@{Pilha}}
+\index{Pilha@{Pilha}!pilha.h@{pilha.\-h}}
+\subsubsection[{Pilha}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pilha}  {\bf Pilha}}}\label{pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea_a0f925ca10d0bb1be8e61de5e8213d6ea}
+
+
+Estrutura de uma pilha, incluindo um ponteiro de Lista para indicar o topo da pilha \par
+. 
+
+\begin{DoxyRemark}{Observações}
+Assertivas Estruturais\-:
+\begin{DoxyItemize}
+\item P != N\-U\-L\-L =$>$ p-\/$>$topo == l $\vert$$\vert$ p-\/$>$topo == N\-U\-L\-L 
+\end{DoxyItemize}
+\end{DoxyRemark}
+
+
+\subsection{Documentação das funções}
+\hypertarget{pilha_8h_aace0232a9126235d3964062107cee55c_aace0232a9126235d3964062107cee55c}{\index{pilha.\-h@{pilha.\-h}!cria\-\_\-pilha@{cria\-\_\-pilha}}
+\index{cria\-\_\-pilha@{cria\-\_\-pilha}!pilha.h@{pilha.\-h}}
+\subsubsection[{cria\-\_\-pilha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pilha}$\ast$ cria\-\_\-pilha (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_aace0232a9126235d3964062107cee55c_aace0232a9126235d3964062107cee55c}
+
+
+Criar uma pilha; \par
+Aloca um espaço para pilha e faz o elemento 'topo' apontar para N\-U\-L\-L, este que será o início da lista a ser utilizada. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Nenhum} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+A pilha alocada 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Não recebe parâmetro, mas retorna uma pilha 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de alocar espaço para uma pilha
+\item Caso não haja espaço na memória, cessar o procedimento\par
+
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O usuário irá usar uma vez a função antes de qualquer operação com a pilha 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_a0c60b2327ddeb2e65ee529641871dfbd_a0c60b2327ddeb2e65ee529641871dfbd}{\index{pilha.\-h@{pilha.\-h}!libera\-\_\-lista@{libera\-\_\-lista}}
+\index{libera\-\_\-lista@{libera\-\_\-lista}!pilha.h@{pilha.\-h}}
+\subsubsection[{libera\-\_\-lista}]{\setlength{\rightskip}{0pt plus 5cm}void libera\-\_\-lista (
+\begin{DoxyParamCaption}
+\item[{{\bf Lista} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_a0c60b2327ddeb2e65ee529641871dfbd_a0c60b2327ddeb2e65ee529641871dfbd}
+
+
+Liberar uma lista da memória \par
+Auxilia a função 'libera\-\_\-pilha' a liberar da memória o espaço correspondente a pilha fornecida. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em l} & -\/ ponteiro para a lista recebida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nenhum 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item l != N\-U\-L\-L 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno, porém é utilizada uma lista temporária para auxiliar 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma lista l 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de liberar uma lista da memória
+\item Caso não haja elementos na lista, parar o procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O ponteiro de lista fornecido está indicando o início da lista 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_ad21398dbba397a88d6cd5ac4ea5f8be9_ad21398dbba397a88d6cd5ac4ea5f8be9}{\index{pilha.\-h@{pilha.\-h}!libera\-\_\-pilha@{libera\-\_\-pilha}}
+\index{libera\-\_\-pilha@{libera\-\_\-pilha}!pilha.h@{pilha.\-h}}
+\subsubsection[{libera\-\_\-pilha}]{\setlength{\rightskip}{0pt plus 5cm}void libera\-\_\-pilha (
+\begin{DoxyParamCaption}
+\item[{{\bf Pilha} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_ad21398dbba397a88d6cd5ac4ea5f8be9_ad21398dbba397a88d6cd5ac4ea5f8be9}
+
+
+Liberar uma pilha da memória \par
+Libera da memória o espaço correspondente a pilha fornecida. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em p} & -\/ ponteiro para a pilha recebida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nenhum 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item p != N\-U\-L\-L 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno, porém é utilizada a função 'libera\-\_\-lista' para auxiliar 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma pilha p 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de liberar uma pilha da memória
+\item Caso não haja elementos na pilha, parar o procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O ponteiro de pilha fornecido está indicando o topo da lista 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_a54a1cdc50015c41512196165a986cab3_a54a1cdc50015c41512196165a986cab3}{\index{pilha.\-h@{pilha.\-h}!pilha\-\_\-vazia@{pilha\-\_\-vazia}}
+\index{pilha\-\_\-vazia@{pilha\-\_\-vazia}!pilha.h@{pilha.\-h}}
+\subsubsection[{pilha\-\_\-vazia}]{\setlength{\rightskip}{0pt plus 5cm}int pilha\-\_\-vazia (
+\begin{DoxyParamCaption}
+\item[{{\bf Pilha} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_a54a1cdc50015c41512196165a986cab3_a54a1cdc50015c41512196165a986cab3}
+
+
+Verificar se a pilha está vazia; \par
+Analisa se a pilha está vazia e retorna a resposta correspondente;. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em p} & -\/ ponteiro para a pilha que será verificada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Inteiro que corresponderá a informação da pilha estar ou não vazia \par
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe uma pilha p como parâmetro e retorna um inteiro 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de informar se a pilha está vazia 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O usuário irá passar como parâmetro uma pilha alocada 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_aaa042bbc4159faac76055a63d4b7fa0a_aaa042bbc4159faac76055a63d4b7fa0a}{\index{pilha.\-h@{pilha.\-h}!pop@{pop}}
+\index{pop@{pop}!pilha.h@{pilha.\-h}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}void pop (
+\begin{DoxyParamCaption}
+\item[{{\bf Pilha} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_aaa042bbc4159faac76055a63d4b7fa0a_aaa042bbc4159faac76055a63d4b7fa0a}
+
+
+Fazer Pop na pilha (retirada do elemento do topo); \par
+Retira o elemento do tipo float do topo de um lista, a qual é indicada por um ponteiro da estrutura pilha. Ademais, confere se a pilha está vazia, para saber se continua com o procedimento e faz com que os demais elementos continuem na mesma ordem \par
+. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em p} & -\/ ponteiro para a pilha da qual será retirado o elemento do topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nenhum 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item p-\/$>$topo != N\-U\-L\-L 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno, porém a Pilha é retornada por passagem por referência 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma pilha p acrescentado nela 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de retirar o elemento do topo da pilha
+\item Caso não haja elementos na pilha, cessar o procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O ponteiro de pilha fornecido está indicando o topo da lista 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_a639f7f4e91ef10022f7ac9c0e83dba2d_a639f7f4e91ef10022f7ac9c0e83dba2d}{\index{pilha.\-h@{pilha.\-h}!push@{push}}
+\index{push@{push}!pilha.h@{pilha.\-h}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void push (
+\begin{DoxyParamCaption}
+\item[{{\bf Pilha} $\ast$}]{p, }
+\item[{float}]{c}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_a639f7f4e91ef10022f7ac9c0e83dba2d_a639f7f4e91ef10022f7ac9c0e83dba2d}
+
+
+Fazer Push na pilha (adição de elemento) \par
+Acrescente um elemento do tipo float no início de uma lista e aponta a estrutura de topo da pilha para este, além do fazer o último elemento da pilha apontar para N\-U\-L\-L. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & -\/ número que será incluído na pilha \\
+\hline
+{\em p} & -\/ ponteiro para a pilha que receberá o inteiro n \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nenhum 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item p != N\-U\-L\-L 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno, porém a Pilha é retornada por passagem por referência 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma pilha p e um valor inteiro n para ser acrescentado nela 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de criar um novo elemento da lista pela função malloc
+\item Caso não haja espaço na memória, cessar o procedimento 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item O valor fornecido pelo usuário será um número real
+\item O ponteiro de pilha fornecido está indicando o topo da lista 
+\end{DoxyItemize}
+\end{DoxyRemark}
+\hypertarget{pilha_8h_a44bbd9709f9a48bea139ad30fd06fc70_a44bbd9709f9a48bea139ad30fd06fc70}{\index{pilha.\-h@{pilha.\-h}!top@{top}}
+\index{top@{top}!pilha.h@{pilha.\-h}}
+\subsubsection[{top}]{\setlength{\rightskip}{0pt plus 5cm}float top (
+\begin{DoxyParamCaption}
+\item[{{\bf Pilha} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{pilha_8h_a44bbd9709f9a48bea139ad30fd06fc70_a44bbd9709f9a48bea139ad30fd06fc70}
+
+
+Fazer Top na pilha (indica o elemento do topo) \par
+Retorna o elemento do tipo float do topo de um lista, a qual é indicada por um ponteiro da estrutura pilha. Ademais, confere se a pilha está vazia, indicando isso na valor retornado (em caso positivo) e não modifica a posição ou existência dos elementos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em p} & -\/ ponteiro para a pilha da qual será informado o elemento do topo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+o número inteiro encontrado no topo da pilha 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Observações}
+Assertiva de entrada\-:
+\begin{DoxyItemize}
+\item p-\/$>$topo != N\-U\-L\-L 
+\end{DoxyItemize}
+
+Estrutura implícita\-:
+\begin{DoxyItemize}
+\item Não é usada variáveis globais, arquivos externos ou condições de retorno, porém a Pilha é retornada por passagem por referência 
+\end{DoxyItemize}
+
+Estrutura Explícita\-:
+\begin{DoxyItemize}
+\item Recebe como parâmetro uma pilha p e retorna um número inteiro 
+\end{DoxyItemize}
+
+Requesitos\-:
+\begin{DoxyItemize}
+\item Deve ser capaz de indicar o elemento do topo da pilha
+\item Caso não haja elementos na pilha, indicar que a pilha está vazia 
+\end{DoxyItemize}
+
+Hipótese\-:
+\begin{DoxyItemize}
+\item Os valores fornecidos pelo usuário eram números reais
+\item O ponteiro de pilha fornecido está indicando o topo da lista 
+\end{DoxyItemize}
+\end{DoxyRemark}

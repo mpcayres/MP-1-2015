@@ -1,0 +1,424 @@
+        -:    0:Source:calculadora.c
+        -:    0:Graph:obj/calculadora.gcno
+        -:    0:Data:obj/calculadora.gcda
+        -:    0:Runs:4
+        -:    0:Programs:1
+        -:    1:/*Trabalho Final de Métodos de Programação
+        -:    2:Professor: Jan Correa
+        -:    3:Alunos: Marcos Paulo Cayres Rosa - 14/0027131
+        -:    4:	Ingrid Santana Lopes - 14/0083065
+        -:    5:	Felipe Lira Fernandes dos Santos - 14/0019821
+        -:    6:- Programa auxiliar, presente na pasta src junto com o 'Makefile', 'pilha.c' e 'testa_calculadora.c'
+        -:    7:*/
+        -:    8:
+        -:    9:#include <stdio.h>
+        -:   10:#include <stdlib.h>
+        -:   11:#include <string.h>
+        -:   12:#include <assert.h>
+        -:   13:#include <math.h>
+        -:   14:#include "pilha.h"
+        -:   15:#include "calculadora.h"
+        -:   16:
+        4:   17:void criaNovoArquivo(void){
+        4:   18:	FILE *fp = fopen ("operacoes.txt","w");
+        4:   19:	if(!fp){
+    #####:   20:		printf("\nNão foi possível criar um novo arquivo.\n");
+    #####:   21:		exit(1);
+        -:   22:	}/*if*/
+        4:   23:	fclose(fp);
+        4:   24:}
+        -:   25:
+       56:   26:int validacao(char *seq){
+       56:   27:	int i, j, par = 0, col = 0, chv = 0, marc_parent = 0, marc_oper = 0;
+       56:   28:	char ant_oper = '\0';
+        -:   29:
+     1465:   30:	for(i = 1; i < (strlen(seq)-1); i++){
+     1441:   31:		if(seq[i] == '(' || seq[i] == '[' || seq[i] == '{'){
+      116:   32:			ant_oper = seq[i];
+      116:   33:			if(seq[i-2] == ')' || seq[i-2] == ']' || seq[i-2] == '}'){
+        8:   34:				printf("\n\tEstá faltando algum operador.");
+        8:   35:				return EXIT_FAILURE;
+        -:   36:			}/*if*/
+      108:   37:			marc_parent = 1;
+      108:   38:			if(seq[i+2] != '*' && seq[i+2] != '/' && seq[i+2] != '^'){
+      108:   39:				marc_oper = 0;
+        -:   40:			}/*if*/
+      108:   41:			if(seq[i] == '(') par++;
+      108:   42:			if(seq[i] == '[') col++;
+      108:   43:			if(seq[i] == '{') chv++;
+        -:   44:		}/*if*/
+     1325:   45:		else if(seq[i] >= '0' && seq[i] <= '9'){
+      339:   46:			marc_parent = 0;
+      339:   47:			marc_oper = 0;
+        -:   48:		}/*if*/
+      986:   49:		else if(seq[i] == ')' || seq[i] == ']' || seq[i] == '}'){
+      100:   50:			if(ant_oper == '(' && (seq[i] == ']' || seq[i] == '}')){
+        4:   51:				printf("\n\tA parentização está incorreta.");
+        4:   52:				return EXIT_FAILURE;
+        -:   53:			}/*if*/
+       96:   54:			else if(ant_oper == '[' && (seq[i] == ')' || seq[i] == '}')){
+        4:   55:				printf("\n\tA parentização está incorreta.");
+        4:   56:				return EXIT_FAILURE;
+        -:   57:			}/*if*/
+       92:   58:			else if(ant_oper == '{' && (seq[i] == ')' || seq[i] == ']')){
+        4:   59:				printf("\n\tA parentização está incorreta.");
+        4:   60:				return EXIT_FAILURE;
+        -:   61:			}/*if*/
+       88:   62:			if(marc_parent == 1){
+    #####:   63:				printf("\n\tHá um conjunto de parênteses que não apresenta expressão.");
+    #####:   64:				return EXIT_FAILURE;
+        -:   65:			}/*if*/
+       88:   66:			if( (par == 0 && seq[i] == ')') ||
+       56:   67:			    (col == 0 && seq[i] == ']') || 
+       44:   68:			    (chv == 0 && seq[i] == '}') ){
+        4:   69:				printf("\n\tA parentização está incorreta.");
+        4:   70:				return EXIT_FAILURE;
+        -:   71:			}/*if*/
+       84:   72:			if(seq[i] == ')') par--;
+       84:   73:			if(seq[i] == ']') col--;
+       84:   74:			if(seq[i] == '}') chv--;
+       84:   75:			ant_oper = seq[i];
+        -:   76:		}/*if*/
+      886:   77:		else if(seq[i] == '+' || seq[i] == '-' || seq[i] == '*' || seq[i] == '/' || seq[i] == '^'){
+      218:   78:		    	if(seq[i] == '/' && seq[i+2] == '0'){
+        8:   79:				for(j = i+3; seq[j] == '0'; j++);
+        8:   80:				if(seq[j] != '.' && !(seq[j] > '0' && seq[j] <= '9')){
+        4:   81:					printf("\n\tErro: divisão por zero.");
+        4:   82:					return EXIT_FAILURE;
+        -:   83:				}/*if*/
+        -:   84:			}/*if*/
+      214:   85:			if(marc_oper == 1 || seq[i+2] == ')'){
+        4:   86:				printf("\n\tHá operadores que não se referem à um valor numérico ou estão em local incorreto.");
+        4:   87:				if(seq[i] == '-' && marc_oper == 1) printf("\n\tCaso estivesse se referindo ao negativo de um número, coloque entre parênteses ou no início da expressão.");
+        4:   88:				return EXIT_FAILURE;
+        -:   89:			}/*if*/
+      210:   90:			marc_oper = 1;
+        -:   91:		}/*if*/
+        -:   92:	}/*if*/	
+        -:   93:
+       24:   94:	if(par != 0 || col != 0 || chv != 0){
+        4:   95:		printf("\n\tA parentização está incorreta.");
+        4:   96:		return EXIT_FAILURE;
+        -:   97:	}/*if*/
+       20:   98:	return EXIT_SUCCESS;
+        -:   99:}
+        -:  100:
+       20:  101:float calcula(char *op){
+       20:  102:	int i, j, marcado = 0;
+       20:  103:	float resul = 0.0, aux1, aux2;
+       20:  104:	char *aux = (char*)malloc(strlen(op)*sizeof(char));
+       20:  105:	if(!aux){
+    #####:  106:		printf("Não foi possível alocar memória");
+    #####:  107:		exit(1);
+        -:  108:	}
+       20:  109:	Pilha *p = cria_pilha();
+        -:  110:
+      430:  111:	for(i = 0; op[i] != '\0'; i++){
+      410:  112:		switch (op[i]){
+        -:  113:			case '+':
+       24:  114:				aux2 = top(p); pop(p);
+       24:  115:				aux1 = top(p); pop(p);
+       24:  116:		    		push(p, (aux1 + aux2));
+       24:  117:		    		break;
+        -:  118:		    	case '*':
+       28:  119:				aux2 = top(p); pop(p);
+       28:  120:				aux1 = top(p); pop(p);
+       28:  121:		    		push(p, (aux1 * aux2));
+       28:  122:		   		break;
+        -:  123:		    	case '-':
+       50:  124:				if(op[i+1] >= '0' && op[i+1] <= '9')
+       16:  125:					marcado = 1;
+        -:  126:				else{
+       34:  127:					aux2 = top(p); pop(p);
+       34:  128:					aux1 = top(p); pop(p);
+       34:  129:			    		push(p, (aux1 - aux2));
+        -:  130:				}/*if*/
+       50:  131:		    		break; 
+        -:  132:		    	case '/':
+       20:  133:		    		aux2 = top(p); pop(p);
+       20:  134:				aux1 = top(p); pop(p);
+       20:  135:	        		push(p, (aux1 / aux2));
+       20:  136:		   		break;
+        -:  137:			case '^':
+       24:  138:		 		aux2 = top(p); pop(p);
+       24:  139:				aux1 = top(p); pop(p);
+       24:  140:				push(p, pow(aux1,aux2));
+       24:  141:				break;
+        -:  142:			case ' ':
+      114:  143:				break;
+        -:  144:		    	default:
+      429:  145:				for(j = 0; op[i] != ' '; i++, j++)
+      279:  146:					aux[j] = op[i];
+      150:  147:				aux[j] = '\0';
+      150:  148:				if(marcado == 0)
+      134:  149:					push(p, atof(aux));
+        -:  150:				else{
+       16:  151:					push(p, -atof(aux));
+       16:  152:					marcado = 0;
+        -:  153:				}/*if*/
+      150:  154:		    		break;
+        -:  155:		}/*switch*/
+        -:  156:	}/*for*/
+        -:  157:
+       20:  158:	resul = top(p);
+       20:  159:	libera_pilha(p);
+        -:  160:
+       20:  161:	return resul;
+        -:  162:}
+        -:  163:
+       20:  164:char *transfPolInv(char *operacao){
+       20:  165:	char *final, *aux, c = '\0', ant = '\0', parent = '\0';
+       20:  166:	int cont = 0, tam, i, j, marcado = 0, neg_expr = -1;
+        -:  167:
+       20:  168:	tam = strlen(operacao);
+       20:  169:   	final = malloc( (tam+1) * sizeof (char));
+       20:  170:	if(!final){
+    #####:  171:		printf("Não foi possível alocar memória");
+    #####:  172:		exit(1);
+        -:  173:	}
+       20:  174:	assert(final != NULL);
+       20:  175:   	aux = malloc( tam * sizeof (char));
+       20:  176:	if(!aux){
+    #####:  177:		printf("Não foi possível alocar memória");
+    #####:  178:		exit(1);
+        -:  179:	}
+       20:  180:	assert(aux != NULL);
+        -:  181:
+       20:  182:   	aux[cont++] = operacao[0];
+      969:  183:   	for (j = 0, i = 1; operacao[i] != '\0'; i++){
+      949:  184:		if(i != 1) ant = operacao[i-2];
+      949:  185:      		switch (operacao[i]){
+        -:  186:         		case '(':
+        -:  187:			case '[':
+        -:  188:			case '{':
+       56:  189:				if(marcado == 0)
+       52:  190:					aux[cont++] = operacao[i];
+        -:  191:				else{
+        4:  192:					aux[cont++] = operacao[i];
+        4:  193:					final[j++] = '0';
+        4:  194:					final[j++] = ' ';
+        4:  195:					neg_expr = 0;
+        4:  196:					marcado = 0;
+        -:  197:				}/*if*/
+       56:  198:				if(neg_expr >= 0) neg_expr++;
+       56:  199:                   		break;
+        -:  200:         		case ')':
+        -:  201:			case ']':
+        -:  202:			case '}':
+       76:  203:				parent = operacao[i];
+       76:  204:				if(neg_expr >= 0) neg_expr--;
+       76:  205:				if(neg_expr == 0){
+        4:  206:					final[j++] = '-';
+        4:  207:					neg_expr = -1;
+        -:  208:				}/*if*/
+       76:  209:				if(parent == ')') parent = '(';
+       32:  210:				else if(parent == ']') parent = '[';
+       20:  211:				else if(parent == '}') parent = '{';
+      220:  212:				while((c = aux[--cont]) != parent){
+       68:  213:					if(final[j-1] != ' ') final[j++] = ' ';
+       68:  214:                      			final[j++] = c;
+        -:  215:				}/*while*/
+       76:  216:                   		break;
+        -:  217:         		case '+': 
+        -:  218:         		case '-':
+       74:  219:				if((ant == '(' || ant == '[' || ant == '{') || i == 1)
+       20:  220:					marcado = 1;
+        -:  221:				else{
+       54:  222:					c = aux[cont-1];
+      150:  223:					while(c != '(' && c != '[' && c != '{'){
+       42:  224:						if(final[j-1] != ' ') final[j++] = ' ';
+       42:  225:		              			final[j++] = c;
+       42:  226:		              			cont--;
+       42:  227:						c = aux[cont-1];
+        -:  228:		           		}/*while*/
+       54:  229:		           		aux[cont++] = operacao[i];
+        -:  230:				}/*if*/
+       74:  231:                   		break;
+        -:  232:         		case '*':
+        -:  233:         		case '/':
+       48:  234:				c = aux[cont-1];
+      108:  235:				while(c != '(' && c != '{' && c != '[' && c != '+' && c != '-'){
+       12:  236:					if(final[j-1] != ' ') final[j++] = ' ';
+       12:  237:                      			final[j++] = c;
+       12:  238:                     			cont--;
+       12:  239:					c = aux[cont-1];
+        -:  240:                  		}/*while*/
+       48:  241:                   		aux[cont++] = operacao[i];
+       48:  242:                   		break;
+        -:  243:			case '^':
+       24:  244:				c = aux[cont-1];
+       52:  245:				while(c != '(' && c != '{' && c != '[' && c != '+' && c != '-' && c != '*' && c != '/'){
+        4:  246:					if(final[j-1] != ' ') final[j++] = ' ';
+        4:  247:                      			final[j++] = c;
+        4:  248:                     			cont--;
+        4:  249:					c = aux[cont-1];
+        -:  250:                  		}/*while*/
+       24:  251:                   		aux[cont++] = operacao[i];
+       24:  252:                   		break;
+        -:  253:			case ' ':
+      396:  254:				if(final[j-1] != ' ') final[j++] = ' ';
+      396:  255:				break;
+        -:  256:         		default:
+      275:  257:				if(marcado == 0)
+      259:  258:					final[j++] = operacao[i];
+        -:  259:				else{
+       16:  260:					final[j++] = '-';
+       16:  261:					final[j++] = operacao[i];
+       16:  262:					marcado = 0;
+        -:  263:				}/*if*/
+      275:  264:				break;
+        -:  265:      		}/*switch*/
+        -:  266:   	}/*for*/
+       20:  267:   	free(aux);
+       20:  268:   	final[j] = '\0';     
+       20:  269:   	return final;
+        -:  270:}
+        -:  271:
+       76:  272:char* CaptExpr(char *nomearq){
+       76:  273:	char c = '\0', ant = '\0', *operacao;
+       76:  274:    	int tam, i = 0, marc_num = 0;
+        -:  275:
+       76:  276:    	FILE *fp = fopen(nomearq, "r+");
+       76:  277:    	if(!fp){
+    #####:  278:		printf("\nNão foi possível abrir o arquivo.\n");
+    #####:  279:		return " ";
+        -:  280:    	}/*if*/
+        -:  281:
+       76:  282:	fseek(fp,0,SEEK_END);
+       76:  283:	tam = ftell(fp);
+       76:  284:	operacao = (char*) malloc((tam+1)*2*sizeof(char));
+       76:  285:	if(!operacao){
+    #####:  286:		printf("Não foi possível alocar memória");
+    #####:  287:		exit(1);
+        -:  288:	}
+        -:  289:	
+       76:  290:	fseek(fp,0,SEEK_SET);
+       76:  291:    	c = fgetc(fp);
+       76:  292:	operacao[i++] = '(';
+      770:  293:    	while(c != EOF){
+     1719:  294:		while((c >= '0' && c <= '9') || c == '.'){
+      483:  295:			operacao[i++] = c;
+      483:  296:			ant = c;
+      483:  297:			marc_num = 1;
+      483:  298:			c = fgetc(fp);
+        -:  299:		}/*while*/
+      618:  300:		if(ant >= '0' && ant <= '9'){
+      334:  301:			operacao[i++] = ' ';
+        -:  302:		}/*if*/
+        -:  303:
+      618:  304:		if(c == '(' || c == '[' || c == '{' ){
+      156:  305:			if(marc_num == 1){
+       40:  306:				operacao = (char*) realloc(operacao,(tam+3)*2*sizeof(char));
+       40:  307:				if(!operacao){
+    #####:  308:					printf("Não foi possível alocar memória");
+    #####:  309:					exit(1);
+        -:  310:				}
+       40:  311:				operacao[i++] = '*';
+       40:  312:				operacao[i++] = ' ';
+        -:  313:			}/*if*/
+      156:  314:			operacao[i++] = c;
+      156:  315:			operacao[i++] = ' ';
+        -:  316:		}/*if*/
+      462:  317:		else if(c == ')' || c == ']' ||c == '}' || c == '*'|| c == '/' || c == '^'){
+      252:  318:			operacao[i++] = c;
+      252:  319:			operacao[i++] = ' ';
+        -:  320:		}/*if*/
+      210:  321:		else if(c == '+' || c == '-'){
+      284:  322:			if(ant == '(' || ant == '\0'){
+        4:  323:				if(c == '-') operacao[i++] = c;
+        -:  324:			} else{
+      138:  325:				operacao[i++] = c;
+      138:  326:				operacao[i++] = ' ';
+        -:  327:			}/*if*/
+        -:  328:		}
+       68:  329:		else if(c != ' ' && c != '\n' && c != EOF && c != '\0'){
+        8:  330:			operacao[0] = c;
+        -:  331:		}/*if*/
+        -:  332:
+      618:  333:		if(c != ' ') marc_num = 0;
+        -:  334:
+      618:  335:		ant = c;
+      618:  336:      		c = fgetc(fp);
+        -:  337:    	}/*while*/
+       76:  338:	operacao[i] = ')';
+       76:  339:	operacao[i+1] = '\0';
+        -:  340:
+       76:  341:	fclose(fp);
+        -:  342:
+       76:  343:	return operacao;
+        -:  344:}
+        -:  345:
+       68:  346:int leitura(char *nomearq){
+        -:  347:	char *operacao, *op_final;
+       68:  348:    	int val = 0, i;
+        -:  349:	float resul;
+        -:  350:
+       68:  351:	operacao = CaptExpr(nomearq);
+       68:  352:	if(strlen(operacao) <= 3){
+        4:  353:		printf("\n\tNão há expressão.\n");
+        4:  354:		return EXIT_FAILURE;
+        -:  355:	}/*if*/
+       64:  356:	if(operacao[0] != '('){
+        8:  357:		printf("\n\tArquivo apresenta caracter inválido: '%c'.\n", operacao[0]);
+        8:  358:		if(operacao[0] == '.' || operacao[0] == ',') printf("\tConfira se está usando o ponto como separador decimal.\n");
+        8:  359:		if(operacao[0] == 'x') printf("\tConfira se não está usando 'x' ao invés de '*' para efetuar multiplicações.\n");
+        8:  360:		return EXIT_FAILURE;
+        -:  361:	}/*if*/
+        -:  362:
+       56:  363:	val = validacao(operacao);
+       56:  364:	printf("\n\t");
+     1705:  365:	for(i = 1; i < (strlen(operacao)-1); i++){
+     1649:  366:		if(operacao[i] != ' ')
+      897:  367:			printf("%c", operacao[i]);
+        -:  368:	}/*for*/
+       56:  369:	if(val == EXIT_FAILURE){
+       36:  370:		printf(" é inválida.\n");
+       36:  371:		return EXIT_FAILURE;
+        -:  372:	}/*if*/
+        -:  373:	
+       20:  374:	op_final = transfPolInv(operacao);
+       20:  375:	printf(" => %s = ", op_final);
+       20:  376:	resul = calcula(op_final);
+       20:  377:	printf("%g\n", resul);
+        -:  378:
+       20:  379:	FILE *fp = fopen("operacoes.txt","a+");
+       20:  380:	if(!fp){
+    #####:  381:		printf("\nNão foi possível abrir arquivo.\n");
+    #####:  382:		exit(1);
+        -:  383:	}/*if*/
+        -:  384:	
+      949:  385:	for(i = 1; i < (strlen(operacao)-1); i++)
+      929:  386:		if(operacao[i] != ' ') fprintf(fp, "%c", operacao[i]);
+       20:  387:	fprintf(fp, " => %s = %g\n", op_final, resul);
+        -:  388:
+       20:  389:	fclose(fp);
+        -:  390:    
+       20:  391:    	return val;
+        -:  392:}
+        -:  393:
+        8:  394:int EditarExpr(char *nomearq){
+        -:  395:	char *operacao, op_nova[200];
+        -:  396:    	int i, val;
+        -:  397:
+        8:  398:	operacao = CaptExpr(nomearq);
+        8:  399:	printf("\n\tExpressão original: ");
+      232:  400:	for(i = 1; i < (strlen(operacao)-1); i++)
+      224:  401:		if(operacao[i] != ' ') printf("%c", operacao[i]);
+        -:  402:
+        8:  403:	printf("\n\tDigite a nova expressão: ");
+        8:  404:	scanf("%s", op_nova);
+        8:  405:	getchar();
+        -:  406:
+        8:  407:	FILE *fp = fopen(nomearq, "w");
+        8:  408:    	if(!fp){
+    #####:  409:		printf("\nNão foi possível abrir o arquivo.\n");
+    #####:  410:		return EXIT_FAILURE;
+        -:  411:    	}/*if*/
+        -:  412:
+        8:  413:	fprintf(fp,"%s",op_nova);
+        -:  414:
+        8:  415:	fclose(fp);
+        -:  416:
+        8:  417:	val = leitura(nomearq);
+        8:  418:	return val;
+        -:  419:}

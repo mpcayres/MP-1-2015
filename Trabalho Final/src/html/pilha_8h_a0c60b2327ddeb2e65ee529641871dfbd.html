@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>Trabalho Final - Métodos de Programação 1/2015: libera_lista</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho Final - Métodos de Programação 1/2015
+   </div>
+   <div id="projectbrief">Ingrid Santana Lopes - 14/0083065; Marcos Paulo Cayres Rosa - 14/0027131; Felipe Lira Fernandes dos Santos - 14/0019821</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&#160;de&#160;dados</span></a></li>
+      <li><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estruturas de dados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Definições de tipos</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="pilha_8h.html">pilha.h</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="contents">
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+   <td valign="top">
+      <div class="navtab">
+        <table>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_aace0232a9126235d3964062107cee55c.html#aace0232a9126235d3964062107cee55c">cria_pilha</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="pilha_8h_a0c60b2327ddeb2e65ee529641871dfbd.html#a0c60b2327ddeb2e65ee529641871dfbd">libera_lista</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_ad21398dbba397a88d6cd5ac4ea5f8be9.html#ad21398dbba397a88d6cd5ac4ea5f8be9">libera_pilha</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_ab845f95877fc6e5b120d2f0186d78d54.html#ab845f95877fc6e5b120d2f0186d78d54">Lista</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_a0f925ca10d0bb1be8e61de5e8213d6ea.html#a0f925ca10d0bb1be8e61de5e8213d6ea">Pilha</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_a54a1cdc50015c41512196165a986cab3.html#a54a1cdc50015c41512196165a986cab3">pilha_vazia</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_aaa042bbc4159faac76055a63d4b7fa0a.html#aaa042bbc4159faac76055a63d4b7fa0a">pop</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_a639f7f4e91ef10022f7ac9c0e83dba2d.html#a639f7f4e91ef10022f7ac9c0e83dba2d">push</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="pilha_8h_a44bbd9709f9a48bea139ad30fd06fc70.html#a44bbd9709f9a48bea139ad30fd06fc70">top</a></td></tr>
+        </table>
+      </div>
+   </td>
+   <td valign="top" class="mempage">
+<a class="anchor" id="a0c60b2327ddeb2e65ee529641871dfbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void libera_lista </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="pilha_8h_ab845f95877fc6e5b120d2f0186d78d54.html#ab845f95877fc6e5b120d2f0186d78d54">Lista</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Liberar uma lista da memória <br/>
+Auxilia a função 'libera_pilha' a liberar da memória o espaço correspondente a pilha fornecida. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>- ponteiro para a lista recebida </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Nenhum </dd></dl>
+<dl class="section remark"><dt>Observações</dt><dd>Assertiva de entrada:<ul>
+<li>l != NULL </li>
+</ul>
+</dd>
+<dd>
+Estrutura implícita:<ul>
+<li>Não é usada variáveis globais, arquivos externos ou condições de retorno, porém é utilizada uma lista temporária para auxiliar </li>
+</ul>
+</dd>
+<dd>
+Estrutura Explícita:<ul>
+<li>Recebe como parâmetro uma lista l </li>
+</ul>
+</dd>
+<dd>
+Requesitos:<ul>
+<li>Deve ser capaz de liberar uma lista da memória</li>
+<li>Caso não haja elementos na lista, parar o procedimento </li>
+</ul>
+</dd>
+<dd>
+Hipótese:<ul>
+<li>O ponteiro de lista fornecido está indicando o início da lista </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</table>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Domingo, 28 de Junho de 2015 12:32:05 para Trabalho Final - Métodos de Programação 1/2015 por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
